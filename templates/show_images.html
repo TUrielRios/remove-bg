@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagen Original y Procesada</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/show_images.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="cafecito-container">
+            <p>¿Te gustó el resultado? ¡Apóyame con un café!</p>
+            <a href="https://cafecito.app/zotidev" target="_blank">
+                <img src="https://cdn.cafecito.app/imgs/buttons/button_5.svg" 
+                    alt="Invitame un café en cafecito.app">
+            </a>
+        </div>
+        <div class="image-container">
+            <div class="image-box">
+                <h2>Imagen Original</h2>
+                <img src="{{ url_for('uploaded_file', filename=original) }}" alt="Original Image">
+            </div>
+            <div class="image-box">
+                <h2>Imagen Sin Fondo</h2>
+                <img src="{{ url_for('processed_file', filename=processed) }}" alt="Processed Image">
+                <a class="download-button" href="{{ url_for('processed_file', filename=processed) }}" download>Descargar Imagen</a>
+            </div>
+        </div>
+        <a class="back-button" href="{{ url_for('index') }}">Subir otra imagen</a>
+    </div>
+</body>
+</html>
