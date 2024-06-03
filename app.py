@@ -1,10 +1,9 @@
-from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 import os
+from flask import Flask, request, redirect, url_for, render_template, send_from_directory
 from rembg import remove
 from PIL import Image
 
-
-app = Flask(__name__, static_folder='static')  # Configuración de la carpeta estática
+app = Flask(__name__, static_folder='static')
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['PROCESSED_FOLDER'] = 'processed'
 
@@ -52,4 +51,5 @@ def process_image(input_path, output_path):
         img.save(output_path)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
