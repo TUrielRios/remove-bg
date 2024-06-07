@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/index.css">
     <title>Borrar fondo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>¡Borra el fondo de tu imágen</h1>
-        <form id="upload-form" action="{{url_for('upload_file')}}" method="post" enctype="multipart/form-data">
+        <h1>¡Borra el fondo de tu imágen!</h1>
+        <form id="upload-form" action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
             <input type="file" name="file" id="file" required onchange="previewImage(event)">
-            <label for="file">Elegir Archivo</label>
+            <label for="file">Elegir archivo</label>
             <div id="preview-container">
-                <img  id="preview" src="" alt="Image Preview">
+                <img id="preview" src="" alt="Image Preview">
             </div>
             <button type="submit">Subir</button>
         </form>
     </div>
-    <script src="{{url_for('static', filename='index.js')}}"></script>
-    
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
 </html>
