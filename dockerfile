@@ -16,3 +16,4 @@ EXPOSE 5000
 
 # Define el comando por defecto para ejecutar la aplicación
 CMD ["python", "app.py"]
+
